@@ -1,0 +1,17 @@
+name: "Branch Gatekeeper"
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check_source_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if branch is Release or Hotfix
+        if: |
+          !startsWith(github.head_ref, 'release/') && 
+          !startsWith(github.head_ref, 'hotfix/')
+        run: |
+          echo "ERROR: You can only merge into 'main' from 'release/*' or 'hotfix/*' branches."
+          exit 1
