@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ws-tmux-theming",
-  description: "A Next.js application for tmux theming",
+  description: "A Next.js application for creating custom tmux themes.",
 };
 
 export default function RootLayout({
